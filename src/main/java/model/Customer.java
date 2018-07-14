@@ -1,15 +1,25 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
 public class Customer extends BaseModel implements Serializable{
-
+    @ManyToOne
+    @JoinColumn(name = "carId")
+    private Car car;
+    @Column
     private String lastname;
+    @Column
     private String name;
+    @Column
     private String adress;
+    @Column
     private String nip;
+    @Column
     private String pesel;
 
     public String getLastname() {

@@ -1,23 +1,36 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Entity
 public class Car extends BaseModel implements Serializable {
-
+    @Column
     private String nr_vin;
+    @Column
     private String year;
+    @Column
     private String maufacturer;
+    @Column
     private String model;
+    @Column
     private String nr_oc;
+    @Column
     private String nr_registration_car;
+    @Column
     private String fuel;
+    @Column
     private String mileage;
+    @Column
     private String engine;
+    @Column
     private String power;
+    @Column
     private String transmission;
+    @Column
     private String description;
+    @Column
     private Integer nr_test_drivers;
 
     public String getNr_vin() {
