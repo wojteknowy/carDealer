@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Customer extends BaseModel implements Serializable{
     @ManyToOne
     @JoinColumn(name = "carId")
-    private Car car;
+    private Cars car;
     @Column
     private String lastname;
     @Column
