@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Entity
 public class Vehicle extends BaseModel implements Serializable {
     @Column
-    private String nr_vin;
+    private String nrVin;
     @Column
     private String year;
     @Column
@@ -15,9 +15,9 @@ public class Vehicle extends BaseModel implements Serializable {
     @Column
     private String model;
     @Column
-    private String nr_oc;
+    private String nrOc;
     @Column
-    private String nr_registration_car;
+    private String nrRegistrationCar;
     @Column
     private String fuel;
     @Column
@@ -31,14 +31,14 @@ public class Vehicle extends BaseModel implements Serializable {
     @Column
     private String info;
     @Column
-    private Integer nr_test_drivers;
+    private Integer price;
 
-    public String getNr_vin() {
-        return nr_vin;
+    public String getNrVin() {
+        return nrVin;
     }
 
-    public void setNr_vin(String nr_vin) {
-        this.nr_vin = nr_vin;
+    public void setNrVin(String nrVin) {
+        this.nrVin = nrVin;
     }
 
     public String getYear() {
@@ -57,14 +57,6 @@ public class Vehicle extends BaseModel implements Serializable {
         this.manufacturer = manufacturer;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
     public String getModel() {
         return model;
     }
@@ -73,20 +65,20 @@ public class Vehicle extends BaseModel implements Serializable {
         this.model = model;
     }
 
-    public String getNr_oc() {
-        return nr_oc;
+    public String getNrOc() {
+        return nrOc;
     }
 
-    public void setNr_oc(String nr_oc) {
-        this.nr_oc = nr_oc;
+    public void setNrOc(String nrOc) {
+        this.nrOc = nrOc;
     }
 
-    public String getNr_registration_car() {
-        return nr_registration_car;
+    public String getNrRegistrationCar() {
+        return nrRegistrationCar;
     }
 
-    public void setNr_registration_car(String nr_registration_car) {
-        this.nr_registration_car = nr_registration_car;
+    public void setNrRegistrationCar(String nrRegistrationCar) {
+        this.nrRegistrationCar = nrRegistrationCar;
     }
 
     public String getFuel() {
@@ -129,19 +121,21 @@ public class Vehicle extends BaseModel implements Serializable {
         this.transmission = transmission;
     }
 
-    public String getDescription() {
+    public String getInfo() {
         return info;
     }
 
-    public void setDescription(String description) {
-        this.info = description;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
-    public Integer getNr_test_drivers() {
-        return nr_test_drivers;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setNr_test_drivers(Integer nr_test_drivers) {
-        this.nr_test_drivers = nr_test_drivers;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
+
 }
+

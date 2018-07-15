@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Vehicle</title>
+</head>
+<body>
+<h1>Add Vehicle</h1>
+<form th:action="@{/vehicles}" th:object="${addedVehicle}" method="post">
+    <table>
+
+        <tr>
+            <td>Number VIN</td>
+            <td>
+                <input type="text" th:field="*{nrVin}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Production Year</td>
+            <td>
+                <input type="text" th:field="*{year}"/>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>Manufacturer</td>
+            <td>
+                <input type="text" th:field="*{manufacturer}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td>
+                <input type="text" th:field="*{model}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Number OC</td>
+            <td>
+                <input type="text" th:field="*{nrOc}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Number registration car</td>
+            <td>
+                <input type="text" th:field="*{nrRegistrationCar}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Fuel</td>
+            <td>
+                <input type="text" th:field="*{fuel}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Mileage</td>
+            <td>
+                <input type="text" th:field="*{mileage}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Engine</td>
+            <td>
+                <input type="text" th:field="*{engine}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Power</td>
+            <td>
+                <input type="text" th:field="*{power}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Transmission</td>
+            <td>
+                <input type="text" th:field="*{transmission}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Info</td>
+            <td>
+                <input type="text" th:field="*{info}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>
+                <input type="text" th:field="*{price}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add Vehicle" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

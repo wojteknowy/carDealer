@@ -1,32 +1,32 @@
 package pl.sda.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.sda.model.Vehicle;
-import pl.sda.repository.CarsFinder;
-import pl.sda.repository.CarsRepository;
+import pl.sda.repository.VehicleRepository;
 
 import java.util.List;
-
+@Service
 public class DefaultCarDataService implements CarDataService{
 
-    private final CarsRepository carsRepository;
-    private final CarsFinder carsFinder;
+    private final VehicleRepository vehicleRepository;
 
-    public DefaultCarDataService(CarsRepository carsRepository, CarsFinder carsFinder) {
-        this.carsRepository = carsRepository;
-        this.carsFinder = carsFinder;
+
+    @Autowired
+    public DefaultCarDataService(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+
     }
 
+    @Override
     public List<Vehicle> loadCarsThatCanBeSold() {
-        return carsFinder.getAvailable();
+        return (List<Vehicle>) vehicleRepository.findAll();
     }
 
     @Override
-    public Vehicle addCars(Vehicle newCarToBeSaved) {
-        return carsRepository.save(newCarToBeSaved);
+    public Vehicle addVehicle(Vehicle newCarToBeSaved) {
+        return vehicleRepository.save(newCarToBeSaved);
     }
 
-    @Override
-    public Vehicle getById(Long id) {
-        return carsRepository.findOne(id);
-    }
+
 }
