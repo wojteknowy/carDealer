@@ -8,9 +8,7 @@ import java.io.Serializable;
 
 @Entity
 public class Customer extends BaseModel implements Serializable{
-   // @ManyToOne
-   // @JoinColumn(name = "carId")
-   // private Vehicle car;
+
     @Column
     private String lastname;
     @Column

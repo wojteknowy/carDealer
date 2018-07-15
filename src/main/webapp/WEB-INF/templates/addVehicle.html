@@ -6,20 +6,20 @@
 </head>
 <body>
 <h1>Add Vehicle</h1>
-<form th:action="@{/vehicles}" th:object="${addedVehicle}" method="post">
+<form th:action="@{/cars}" th:object="${addedVehicle}" method="post">
     <table>
 
         <tr>
             <td>Number VIN</td>
             <td>
-                <input type="text" th:field="*{nrVin}"/>
+                <input type="text" th:field="*{VehicleNrVin}"/>
             </td>
         </tr>
 
         <tr>
             <td>Production Year</td>
             <td>
-                <input type="text" th:field="*{year}"/>
+                <input type="text" th:field="*{VehicleYear}"/>
             </td>
         </tr>
 
@@ -28,70 +28,74 @@
         <tr>
             <td>Manufacturer</td>
             <td>
-                <input type="text" th:field="*{manufacturer}"/>
+                <input type="text" th:field="*{VehicleManufacturer}"/>
             </td>
         </tr>
         <tr>
             <td>Model</td>
             <td>
-                <input type="text" th:field="*{model}"/>
+                <input type="text" th:field="*{VehicleModel}"/>
             </td>
         </tr>
 
         <tr>
             <td>Number OC</td>
             <td>
-                <input type="text" th:field="*{nrOc}"/>
+                <input type="text" th:field="*{VehicleNrOc}"/>
             </td>
         </tr>
 
         <tr>
             <td>Number registration car</td>
             <td>
-                <input type="text" th:field="*{nrRegistrationCar}"/>
+                <input type="text" th:field="*{VehicleNrRegistrationCar}"/>
             </td>
         </tr>
         <tr>
             <td>Fuel</td>
             <td>
-                <input type="text" th:field="*{fuel}"/>
+                <input type="text" th:field="*{VehicleFuel}"/>
             </td>
         </tr>
 
         <tr>
             <td>Mileage</td>
             <td>
-                <input type="text" th:field="*{mileage}"/>
+                <input type="text" th:field="*{VehicleMileage}"/>
             </td>
         </tr>
         <tr>
             <td>Engine</td>
             <td>
-                <input type="text" th:field="*{engine}"/>
+                <input type="text" th:field="*{VehicleEngine}"/>
             </td>
         </tr>
         <tr>
             <td>Power</td>
             <td>
-                <input type="text" th:field="*{power}"/>
+                <input type="text" th:field="*{VehiclePower}"/>
             </td>
         </tr>
         <tr>
             <td>Transmission</td>
             <td>
-                <input type="text" th:field="*{transmission}"/>
+                <input type="text" th:field="*{VehicleTransmission}"/>
             </td>
         </tr>
         <tr>
             <td>Info</td>
             <td>
-                <input type="text" th:field="*{info}"/>
+                <input type="text" th:field="*{VehicleInfo}"/>
             </td>
         </tr>
+
+
+
+
         <tr>
             <td>Price</td>
             <td>
-                <input type="text" th:field="*{price}"/>
+                <input type="text" th:field="*{BuyPrice}"/>
             </td>
         </tr>
         <tr>

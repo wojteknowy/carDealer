@@ -7,9 +7,9 @@
     <title>Avilable Cars</title>
 </head>
 <body>
-
+<span class="border border-dark">
 <h1>Avilable Cars</h1>
-
+</span>
 <table>
     <tr>
         <th>Id</th>
@@ -24,12 +24,13 @@
         <th>Power</th>
         <th>Transmission</th>
         <th>Info</th>
-        <th>Price</th>
+
     </tr>
 
     <tr th:each="vehicle , index : ${vehicles1}">
 
         <td th:text="${vehicle.id}"/>
+
         <td th:text="${vehicle.nrVin}"/>
 
         <td th:text="${vehicle.year}"/>
@@ -37,6 +38,7 @@
         <td th:text="${vehicle.manufacturer}"/>
 
         <td th:text="${vehicle.model}"/>
+
         <td th:text="${vehicle.nrOc}"/>
         <td th:text="${vehicle.fuel}"/>
         <td th:text="${vehicle.mileage}"/>
@@ -44,15 +46,16 @@
         <td th:text="${vehicle.power}"/>
         <td th:text="${vehicle.transmission}"/>
         <td th:text="${vehicle.info}"/>
-        <td th:text="${vehicle.price}"/>
 
-        <td><a th:href="@{/info}">opis</a></td>
-
+        <div class="d-inline p-2 bg-primary text-white">
+        <td><a th:href="@{/cars/{carId}/desc(carId=${vehicle.id})}">szczegóły</a></td>
+        </div>
 
     </tr>
 
 
 </table>
+
 
 </body>
 </html>

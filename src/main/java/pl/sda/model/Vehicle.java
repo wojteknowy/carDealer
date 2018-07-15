@@ -30,8 +30,7 @@ public class Vehicle extends BaseModel implements Serializable {
     private String transmission;
     @Column
     private String info;
-    @Column
-    private Integer price;
+
 
     public String getNrVin() {
         return nrVin;
@@ -129,13 +128,6 @@ public class Vehicle extends BaseModel implements Serializable {
         this.info = info;
     }
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
 
 }
 
