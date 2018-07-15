@@ -1,4 +1,4 @@
-package model;
+package pl.sda.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +8,9 @@ import java.io.Serializable;
 
 @Entity
 public class Customer extends BaseModel implements Serializable{
-    @ManyToOne
-    @JoinColumn(name = "carId")
-    private Cars car;
+   // @ManyToOne
+   // @JoinColumn(name = "carId")
+   // private Vehicle car;
     @Column
     private String lastname;
     @Column

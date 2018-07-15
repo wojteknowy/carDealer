@@ -1,17 +1,17 @@
-package model;
+package pl.sda.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Entity
-public class Cars extends BaseModel implements Serializable {
+public class Vehicle extends BaseModel implements Serializable {
     @Column
     private String nr_vin;
     @Column
     private String year;
     @Column
-    private String maufacturer;
+    private String manufacturer;
     @Column
     private String model;
     @Column
@@ -29,7 +29,7 @@ public class Cars extends BaseModel implements Serializable {
     @Column
     private String transmission;
     @Column
-    private String description;
+    private String info;
     @Column
     private Integer nr_test_drivers;
 
@@ -49,12 +49,20 @@ public class Cars extends BaseModel implements Serializable {
         this.year = year;
     }
 
-    public String getMaufacturer() {
-        return maufacturer;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setMaufacturer(String maufacturer) {
-        this.maufacturer = maufacturer;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public String getModel() {
@@ -122,11 +130,11 @@ public class Cars extends BaseModel implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return info;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.info = description;
     }
 
     public Integer getNr_test_drivers() {
