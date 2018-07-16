@@ -3,8 +3,7 @@ package pl.sda.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.model.Worker;
 import pl.sda.repository.WorkerRepository;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/worker")
-public class WorkerDataController  {
+public class WorkerDataController {
 
     private final WorkerRepository workerRepository;
 
@@ -22,11 +21,32 @@ public class WorkerDataController  {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String printWorkers (Model model){
-        List<Worker> workers = (List<Worker>)workerRepository.findAll();
-        if (workers!= null){
+    public String printWorkers(Model model) {
+        List<Worker> workers = (List<Worker>) workerRepository.findAll();
+        if (workers != null) {
             model.addAttribute("workers", workers);
-        }return "worker";
+        }
+        return "worker";
 
     }
+
+    @GetMapping("/new")
+    public String addWorker(Model model) {
+        model.addAttribute("addedWorker", new Worker());
+        return "addWorker";
+
+    }
+
+    @PostMapping
+    public String saveWorker(
+            @ModelAttribute("addedWorker") Worker worker) {
+        worker.getName();
+        worker.getLastname();
+        worker.getAdress();
+        worker.getDateOfEmployment();
+
+        workerRepository.save(worker);
+        return "redirect:/worker";
+    }
+
 }

@@ -21,6 +21,7 @@ public class CarDataController {
     private final VehicleRepository vehicleRepository;
     private final CarDataService carDataService;
     private final BuyingContractRepository buyingContractRepository;
+
     @Autowired
     public CarDataController(VehicleRepository vehicleRepository,
                              CarDataService carDataService,
