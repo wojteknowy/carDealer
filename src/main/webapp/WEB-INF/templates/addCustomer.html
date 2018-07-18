@@ -4,11 +4,11 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
-    <title>Add Worker</title>
+    <title>Registration Customer</title>
 </head>
 <body style="background-color: darkgray">
-<h1>Add Worker</h1>
-<form th:action="@{/worker}" th:object="${addedWorker}" method="post">
+<h1>Registration Customer</h1>
+<form th:action="@{/customer}" th:object="${addCustomer}" method="post">
     <table>
 
         <tr>
@@ -33,15 +33,23 @@
             </td>
         </tr>
         <tr>
-            <td>Date of employment</td>
+            <td>NIP</td>
             <td>
-                <input type="text" th:field="*{dateOfEmployment}"/>
+                <input type="text" th:field="*{nip}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Pesel</td>
+            <td>
+                <input type="text" th:field="*{pesel}"/>
             </td>
         </tr>
 
 
+
         <td colspan="2">
-            <input type="submit" value="Add Worker"/>
+            <input type="submit" value="Add Customer"/>
         </td>
 
     </table>

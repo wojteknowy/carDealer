@@ -26,7 +26,7 @@ public class WorkerDataController {
         if (workers != null) {
             model.addAttribute("workers", workers);
         }
-        return "worker";
+        return "workersList";
 
     }
 

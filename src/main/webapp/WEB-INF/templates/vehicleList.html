@@ -10,20 +10,20 @@
 <span class="border border-dark">
 <h1>Avilable Cars</h1>
 </span>
-<table>
+<table class="table table-striped">
     <tr>
-        <th>Id</th>
-        <th>Nr vin</th>
-        <th>Production Year</th>
-        <th>Manufacturer</th>
-        <th>Model</th>
-        <th>Nr OC</th>
-        <th>Fuel</th>
-        <th>Mileage</th>
-        <th>Engine</th>
-        <th>Power</th>
-        <th>Transmission</th>
-        <th>Info</th>
+        <th scope="col">Id</th>
+        <th scope="col">Nr vin</th>
+        <th scope="col">Production Year</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Model</th>
+        <th scope="col">Nr OC</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Engine</th>
+        <th scope="col">Power</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Info</th>
 
     </tr>
 
@@ -47,7 +47,7 @@
         <td th:text="${vehicle.transmission}"/>
         <td th:text="${vehicle.info}"/>
 
-        <div class="d-inline p-2 bg-primary text-white">
+
         <td><a th:href="@{/cars/{carId}/desc(carId=${vehicle.id})}">szczegóły</a></td>
         </div>
 
