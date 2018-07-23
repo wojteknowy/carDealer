@@ -19,6 +19,16 @@ public class Customer extends BaseModel implements Serializable{
     private String nip;
     @Column
     private String pesel;
+    @Column
+    private String documentNo;
+
+    public String getDocumentNo() {
+        return documentNo;
+    }
+
+    public void setDocumentNo(String documentNo) {
+        this.documentNo = documentNo;
+    }
 
     public String getLastname() {
         return lastname;

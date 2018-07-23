@@ -10,51 +10,32 @@
 <span class="border border-dark">
 <h1>Avilable Cars</h1>
 </span>
+
 <table class="table table-striped">
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nr vin</th>
-        <th scope="col">Production Year</th>
-        <th scope="col">Manufacturer</th>
-        <th scope="col">Model</th>
-        <th scope="col">Nr OC</th>
-        <th scope="col">Fuel</th>
-        <th scope="col">Mileage</th>
-        <th scope="col">Engine</th>
-        <th scope="col">Power</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Info</th>
-
+        <th>Id</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Production Year</th>
+        <th>Mileage</th>
+        <th>Fuel</th>
+        <th>Price</th>
+        <th>Info</th>
+        <th>Action</th>
     </tr>
-
-    <tr th:each="vehicle , index : ${vehicles1}">
-
+    <tr th:each="vehicle , index : ${vehicleList}">
         <td th:text="${vehicle.id}"/>
-
-        <td th:text="${vehicle.nrVin}"/>
-
-        <td th:text="${vehicle.year}"/>
-
         <td th:text="${vehicle.manufacturer}"/>
-
         <td th:text="${vehicle.model}"/>
-
-        <td th:text="${vehicle.nrOc}"/>
-        <td th:text="${vehicle.fuel}"/>
+        <td th:text="${vehicle.year}"/>
         <td th:text="${vehicle.mileage}"/>
-        <td th:text="${vehicle.engine}"/>
-        <td th:text="${vehicle.power}"/>
-        <td th:text="${vehicle.transmission}"/>
-        <td th:text="${vehicle.info}"/>
-
-
-        <td><a th:href="@{/cars/{carId}/desc(carId=${vehicle.id})}">szczegóły</a></td>
-        </div>
-
+        <td th:text="${vehicle.fuel}"/>
+        <td th:text="${vehicle.price}"/>
+        <td><a th:href="@{/vehicles/{vehId}/sell(vehId=${vehicle.id})}" th:text="Sell"/></td>
     </tr>
-
-
 </table>
+
+
 
 
 </body>

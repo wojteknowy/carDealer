@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
+    <title>Sell Vehicle</title>
+    <style>
+        .fieldError{
+            border-color: #ff0000;
+        }
+    </style>
+</head>
+<body style="background-color: darkgray">
+<h1>Sell Vehicle</h1>
+<form th:action="@{/purchases}" th:object="${sellData}" method="post">
+    <input type="hidden" th:value="${vehicleId}" th:attr="name='vehicleId'"/>
+    <table>
+        <tr>
+            <td>Price</td>
+            <td>
+                <input type="text" th:field="*{price}" th:errorclass="fieldError"/>
+                <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Customer Name</td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Customer Last Name</td>
+            <td>
+                <input type="text" th:field="*{lastname}"/>
+                <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Customer Document No</td>
+            <td>
+                <input type="text" th:field="*{documentNo}"/>
+                <span th:if="${#fields.hasErrors('documentNo')}" th:errors="*{documentNo}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Customer Pesel</td>
+            <td>
+                <input type="text" th:field="*{pesel}"/>
+                <span th:if="${#fields.hasErrors('pesel')}" th:errors="*{pesel}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Sell Vehicle"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

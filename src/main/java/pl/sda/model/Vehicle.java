@@ -30,7 +30,26 @@ public class Vehicle extends BaseModel implements Serializable {
     private String transmission;
     @Column
     private String info;
+    @Column
+    private Boolean Sold;
+    @Column
+    private Long price;
 
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public Boolean getSold() {
+        return Sold;
+    }
+
+    public void setSold(Boolean sold) {
+        Sold = sold;
+    }
 
     public String getNrVin() {
         return nrVin;

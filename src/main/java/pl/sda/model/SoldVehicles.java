@@ -3,8 +3,10 @@ package pl.sda.model;
 import org.hibernate.annotations.Entity;
 
 import javax.persistence.Column;
+import java.io.Serializable;
+
 @javax.persistence.Entity
-public class SoldVehicles extends BaseModel {
+public class SoldVehicles extends BaseModel implements Serializable{
 
     @Column
     private String nrVin;
@@ -30,6 +32,26 @@ public class SoldVehicles extends BaseModel {
     private String transmission;
     @Column
     private String info;
+    @Column
+    private Boolean Sold;
+    @Column
+    private Integer price;
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public Boolean getSold() {
+        return Sold;
+    }
+
+    public void setSold(Boolean sold) {
+        Sold = sold;
+    }
 
     public String getNrVin() {
         return nrVin;

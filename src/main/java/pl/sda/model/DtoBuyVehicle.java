@@ -1,9 +1,10 @@
 package pl.sda.model;
 
 import javax.persistence.Column;
+import java.io.Serializable;
 import java.util.Date;
 
-public class DtoByVehicle {
+public class DtoBuyVehicle extends BaseModel implements Serializable {
 
 
     private String VehicleNrVin;
