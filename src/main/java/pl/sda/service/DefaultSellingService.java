@@ -12,6 +12,7 @@ import pl.sda.repository.VehicleRepository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DefaultSellingService implements SellingService {
@@ -31,15 +32,16 @@ public class DefaultSellingService implements SellingService {
 
     @Transactional
     public Purchase sell(Long vehicleId, final Customer customer, Long price) {
-//        Optional<Vehicle> notSoldVehicle =
-//                vehicleRepository.findNotSoldVehicle(vehicleId);
-//        Purchase purchase = notSoldVehicle
-//                .map(vehicle -> performSell(vehicle, customer, price))
-//                .orElse(null);
-//        return purchase;
-        return vehicleRepository.findNotSoldVehicle(vehicleId)
-                .map(vehicle -> performSell(vehicle, customer, price))
-                .orElse(null);
+      // Optional<Vehicle> notSoldVehicle =
+      //         vehicleRepository.findNotSoldVehicle(vehicleId);
+      // Purchase purchase = notSoldVehicle
+      //         .map(vehicle -> performSell(vehicle, customer, price))
+      //         .orElse(null);
+     //  return purchase;
+      // return vehicleRepository.findNotSoldVehicle(vehicleId)
+      //         .map(vehicle -> performSell(vehicle, customer, price))
+      //         .orElse(null);
+        return null;
     }
 
     @Override
