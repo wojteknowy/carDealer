@@ -11,6 +11,6 @@ import java.util.Optional;
 
 public interface VehicleRepository extends CrudRepository <Vehicle, Long> {
 
-  //  @Query("SELECT v FROM Vehicle v WHERE v.id = :vehId AND v.Sold = false")
-  //  Optional<Vehicle> findNotSoldVehicle(@Param("vehId") Long id);
+  //     @Query("SELECT v FROM Vehicle v WHERE v.id = :vehId AND v.Sold = false")
+  //     Optional<Vehicle> findNotSoldVehicle(@Param("vehId") Long id);
 }
