@@ -19,11 +19,11 @@ public class CarDataController {
 
 
 
-  // private final DefaultCarDataService defaultCarDataService;
-  // @Autowired
-  // public CarDataController(DefaultCarDataService defaultCarDataService) {
-  //     this.defaultCarDataService = defaultCarDataService;
-  // }
+ // private final DefaultCarDataService defaultCarDataService;
+ // @Autowired
+ // public CarDataController(DefaultCarDataService defaultCarDataService) {
+ //     this.defaultCarDataService = defaultCarDataService;
+ // }
 
 
 
@@ -38,25 +38,25 @@ public class CarDataController {
   //       return "vehicleDetails";
   //   }
 
- //    @RequestMapping(method = RequestMethod.GET)
- //    public String printAvailableCars(Model model) {
- //        List<Vehicle> vehicles = defaultCarDataService.loadCarsThatCanBeSold();
- //        model.addAttribute("vehicleList", vehicles);
- //      return "vehicleList";
- // }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String printAvailableCars(Model model) {
+//        List<Vehicle> vehicles = defaultCarDataService.loadCarsThatCanBeSold();
+//        model.addAttribute("vehicleList", vehicles);
+//      return "vehicleList";
+// }
 
-    @GetMapping("/new")
-    public String addCarForm(Model model) {
-        model.addAttribute("addedVehicle", new Vehicle());
-        return "addVehicle";
-    }
+//   @GetMapping("/new")
+//   public String addCarForm(Model model) {
+//       model.addAttribute("addedVehicle", new Vehicle());
+//       return "addVehicle";
+//   }
 
-//    @PostMapping
-//    public String saveVehicle(
-//            @ModelAttribute("addedVehicle") Vehicle vehicleToBeSaved) {
-//        carDataService.addVehicle(vehicleToBeSaved);
-//        return "redirect:/vehicles";
-//    }
+//   @PostMapping
+//   public String saveVehicle(
+//           @ModelAttribute("addedVehicle") Vehicle vehicleToBeSaved) {
+//       carDataService.addVehicle(vehicleToBeSaved);
+//       return "redirect:/vehicles";
+//   }
 
     @GetMapping("/{vehicleId}/sell")
     public String sellVehicleForm(
