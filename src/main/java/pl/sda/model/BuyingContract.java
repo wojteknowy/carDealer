@@ -1,11 +1,12 @@
 package pl.sda.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.Date;
-
+@Entity
 public class BuyingContract extends BaseModel implements Serializable {
 
 
@@ -16,7 +17,7 @@ public class BuyingContract extends BaseModel implements Serializable {
     private Long price;
 
     @OneToOne
-    @JoinColumn(name="idcars")
+    @JoinColumn(name="idvehicles")
     private Vehicle vehicle;
 
     @OneToOne

@@ -12,9 +12,9 @@ import pl.sda.service.DefaultCarDataService;
 import java.util.List;
 import java.util.Scanner;
 
-@Controller
-@RequestMapping("/vehicles")
-public class CarDataController {
+    @Controller
+    @RequestMapping("/vehicles")
+    public class CarDataController {
 
 
 

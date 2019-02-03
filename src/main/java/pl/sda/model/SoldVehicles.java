@@ -35,13 +35,13 @@ public class SoldVehicles extends BaseModel implements Serializable{
     @Column
     private Boolean Sold;
     @Column
-    private Integer price;
+    private Long price;
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
