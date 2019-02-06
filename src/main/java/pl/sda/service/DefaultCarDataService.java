@@ -14,7 +14,6 @@ public abstract class DefaultCarDataService implements CarDataService {
     private final VehicleRepository vehicleRepository;
 
 
-
     @Autowired
     public DefaultCarDataService(VehicleRepository vehicleRepository, VehicleFinder vehicleFinder) {
         this.vehicleRepository = vehicleRepository;

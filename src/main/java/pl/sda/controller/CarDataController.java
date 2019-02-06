@@ -1,42 +1,44 @@
 package pl.sda.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.model.PurchaseFormData;
-import pl.sda.model.Vehicle;
-import pl.sda.service.CarDataService;
+import pl.sda.repository.BuyingContractRepository;
+import pl.sda.repository.SellingContractRepository;
+import pl.sda.repository.VehicleRepository;
+import pl.sda.service.CarsDataService;
 import pl.sda.service.DefaultCarDataService;
 
-import java.util.List;
 import java.util.Scanner;
 
-    @Controller
-    @RequestMapping("/vehicles")
-    public class CarDataController {
+@Controller
+@RequestMapping("/vehicles")
+public class CarDataController {
 
 
+    private CarsDataService carsDataService;
+    private final VehicleRepository vehicleRepository;
+    private final DefaultCarDataService defaultCarDataService;
+    private final BuyingContractRepository buyingContractRepository;
+    private final SellingContractRepository sellingContractRepository;
 
+    public CarDataController(CarsDataService carsDataService, VehicleRepository vehicleRepository, DefaultCarDataService defaultCarDataService, BuyingContractRepository buyingContractRepository, SellingContractRepository sellingContractRepository) {
+        this.carsDataService = carsDataService;
+        this.vehicleRepository = vehicleRepository;
+        this.defaultCarDataService = defaultCarDataService;
+        this.buyingContractRepository = buyingContractRepository;
+        this.sellingContractRepository = sellingContractRepository;
+    }
 
- // private final DefaultCarDataService defaultCarDataService;
- // @Autowired
- // public CarDataController(DefaultCarDataService defaultCarDataService) {
- //     this.defaultCarDataService = defaultCarDataService;
- // }
-
-
-
-  //   @RequestMapping("/{vehicleId}")
-  //   public String getCar(
-  //           @PathVariable("vehicleId") Long vehicleId,
-  //           Model model) {
-  //       Vehicle vehicle = defaultCarDataService.getVehicleById(vehicleId);
-  //       if (vehicle != null) {
-  //           model.addAttribute("vehicle", vehicle);
-  //       }
-  //       return "vehicleDetails";
-  //   }
+//   @RequestMapping("/{vehicleId}")
+//   public String getCar(
+//           @PathVariable("vehicleId") Long vehicleId,
+//           Model model) {
+//       Vehicle vehicle = defaultCarDataService.getVehicleById(vehicleId);
+//       if (vehicle != null) {
+//           model.addAttribute("vehicle", vehicle);
+//       }
+//       return "vehicleDetails";
+//   }
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public String printAvailableCars(Model model) {
@@ -58,14 +60,14 @@ import java.util.Scanner;
 //       return "redirect:/vehicles";
 //   }
 
-    @GetMapping("/{vehicleId}/sell")
-    public String sellVehicleForm(
-            @PathVariable("vehicleId") Long vehicleId,
-            Model model) {
-        model.addAttribute("vehicleId", vehicleId);
-        model.addAttribute("sellData", new PurchaseFormData());
-        return "sellVehicle";
-    }
+//   @GetMapping("/{vehicleId}/sell")
+//   public String sellVehicleForm(
+//           @PathVariable("vehicleId") Long vehicleId,
+//           Model model) {
+//       model.addAttribute("vehicleId", vehicleId);
+//       model.addAttribute("sellData", new PurchaseFormData());
+//       return "sellVehicle";
+//   }
 
 //    public void createCar() {
 //        Vehicle vehicle = new Vehicle();

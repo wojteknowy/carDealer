@@ -1,12 +1,11 @@
 package pl.sda.model;
 
-import org.hibernate.annotations.Entity;
-
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.Date;
 
 @javax.persistence.Entity
-public class SoldVehicles extends BaseModel implements Serializable{
+public class DtoSoldVehicles extends BaseModel implements Serializable{
 
     @Column
     private String nrVin;
@@ -36,6 +35,26 @@ public class SoldVehicles extends BaseModel implements Serializable{
     private Boolean Sold;
     @Column
     private Long price;
+    @Column
+    private Date saleDate;
+    @Column
+    private Date purchaseDate;
+
+    public Date getSaleDate() {
+        return saleDate;
+    }
+
+    public void setSaleDate(Date saleDate) {
+        this.saleDate = saleDate;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
 
     public Long getPrice() {
         return price;
@@ -49,8 +68,9 @@ public class SoldVehicles extends BaseModel implements Serializable{
         return Sold;
     }
 
-    public void setSold(Boolean sold) {
+    public boolean setSold(Boolean sold) {
         Sold = sold;
+        return false;
     }
 
     public String getNrVin() {

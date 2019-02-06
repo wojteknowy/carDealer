@@ -1,8 +1,9 @@
 package pl.sda.service;
 
+import org.springframework.stereotype.Service;
 import pl.sda.model.BuyingContract;
+import pl.sda.model.DtoSoldVehicles;
 import pl.sda.model.SellingContracts;
-import pl.sda.model.SoldVehicles;
 import pl.sda.model.Vehicle;
 import pl.sda.repository.BuyingContractRepository;
 import pl.sda.repository.SellingContractRepository;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class CarsDataService {
     private final VehicleRepository vehicleRepository;
     private final BuyingContractRepository buyingContractRepository;
@@ -25,85 +27,88 @@ public class CarsDataService {
     }
 
 
-    public List<SoldVehicles> showCars() throws NullPointerException {
+    public List<DtoSoldVehicles> showVehicles() throws NullPointerException {
         List<Vehicle> vehicle = (List<Vehicle>) vehicleRepository.findAll();
         List<BuyingContract> buyingContracts = (List<BuyingContract>) buyingContractRepository.findAll();
         List<SellingContracts> sellingContracts = (List<SellingContracts>) sellingContractRepository.findAll();
-        List<SoldVehicles> list = new ArrayList<>();
+        List<DtoSoldVehicles> list = new ArrayList<>();
 
         for (Vehicle v : vehicle) {
 
-            SoldVehicles soldVehicles = new SoldVehicles();
-            soldVehicles.setId(v.getId());
-            soldVehicles.setManufacturer(v.getManufacturer());
-            soldVehicles.setModel(v.getModel());
-            soldVehicles.setEngine(v.getEngine());
-            soldVehicles.setPrice(v.getPrice());
-            soldVehicles.setMileage(v.getMileage());
-            soldVehicles.setSold(v.getSold());
-
-
-         //   public List<SoldVehicles> showAvailableCars () throws NullPointerException {
-         //       List<SoldVehicles> listVehicles = showCars();
-         //       List<SellingContracts> sellingContracts = (List<SellingContracts>) sellingContractRepository.findAll();
-//
-         //       for (SellingContracts sc : sellingContracts) {
-         //           for (DtoShowCar dtoShowCar : list) {
-         //               if ((sc.getCars().getId().equals(dtoShowCar.getId()))) {
-         //                   list.remove(dtoShowCar);
-         //                   break;
-         //               }
-         //           }
-         //       }
-         //       return list;
-         //   }
-//
-         //   public List<DtoShowCar> showAvailableCars2 (List < DtoShowCar > listIn) {
-         //       List<DtoShowCar> listOut = new ArrayList<>();
-         //       for (DtoShowCar dtoShowCar : listIn) {
-         //           if (dtoShowCar.isCarVisibility()) {
-         //               listOut.add(dtoShowCar);
-         //           }
-         //       }
-         //       return listOut;
-         //   }
-//
-         //   public List<DtoShowCar> showSoldCars () {
-         //       List<DtoShowCar> listIn = showCars();
-         //       List<DtoShowCar> listOut = new ArrayList<>();
-         //       List<SellingContracts> sellingContracts = (List<SellingContracts>) sellingContractsRepository.findAll();
-//
-         //       for (SellingContracts sc : sellingContracts) {
-         //           for (DtoShowCar dtoShowCar : listIn) {
-         //               if ((sc.getCars().getId().equals(dtoShowCar.getId()))) {
-         //                   listOut.add(dtoShowCar);
-         //                   break;
-         //               }
-         //           }
-         //       }
-         //       return listOut;
-         //   }
-//
-         //   public List<DtoShowCar> showBoughtCars () {
-//
-         //       List<DtoShowCar> list = showCars();
-         //       List<BuyingContracts> buyingContracts = (List<BuyingContracts>) buyingContractsRepository.findAll();
-//
-         //       for (BuyingContracts bc : buyingContracts) {
-         //           for (DtoShowCar dtoShowCar : list) {
-         //               if (bc.getCars().getId().equals(dtoShowCar.getId())) {
-         //                   dtoShowCar.setCarPrice(bc.getPrice());
-//
-         //                   Date date = bc.getDate();
-//
-         //                   dtoShowCar.setPurchaseDate(date);
-         //                   break;
-         //               }
-         //           }
-         //       }
-         //       return list;
-         //   }
-
-       }return list;
+            DtoSoldVehicles dtoSoldVehicles = new DtoSoldVehicles();
+            dtoSoldVehicles.setId(v.getId());
+            dtoSoldVehicles.setManufacturer(v.getManufacturer());
+            dtoSoldVehicles.setModel(v.getModel());
+            dtoSoldVehicles.setEngine(v.getEngine());
+            dtoSoldVehicles.setPrice(v.getPrice());
+            dtoSoldVehicles.setMileage(v.getMileage());
+            dtoSoldVehicles.setSold(v.getSold());
+        }
+        return list;
     }
+
+    public List<DtoSoldVehicles> showAvailableVehicles() throws NullPointerException {
+        List<DtoSoldVehicles> listVehicles = showVehicles();
+        List<SellingContracts> sellingContracts = (List<SellingContracts>) sellingContractRepository.findAll();
+
+        for (SellingContracts sc : sellingContracts) {
+            for (DtoSoldVehicles dtoShowVehicle : listVehicles) {
+                if (sc.getVehicle().getId().equals(dtoShowVehicle.getId())) {
+                    listVehicles.remove(dtoShowVehicle);
+                    break;
+                }
+            }
+        }
+        return listVehicles;
+    }
+
+
+    public List<DtoSoldVehicles> showAvailableCars2(List<DtoSoldVehicles> listIn) {
+        List<DtoSoldVehicles> listOut = new ArrayList<>();
+        for (DtoSoldVehicles dtoShowVehicles : listIn) {
+            if (dtoShowVehicles.setSold(true)) ;
+            listOut.add(dtoShowVehicles);
+        }
+        return listOut;
+    }
+
+    public List<DtoSoldVehicles> showSoldVehicles() {
+        List<DtoSoldVehicles> listIn = showVehicles();
+        List<DtoSoldVehicles> listOut = new ArrayList<>();
+        List<SellingContracts> sellingContracts = (List<SellingContracts>) sellingContractRepository.findAll();
+
+
+        for (SellingContracts sc : sellingContracts) {
+            for (DtoSoldVehicles dtoShowVehicles : listIn) {
+                if ((sc.getVehicle().getId().equals(dtoShowVehicles.getId()))) {
+                    listOut.add(dtoShowVehicles);
+                    break;
+                }
+            }
+        }
+        return listOut;
+    }
+
+
+    public List<DtoSoldVehicles> showBoughtVehicles() {
+
+        List<DtoSoldVehicles> list = showVehicles();
+        List<BuyingContract> buyingContracts = (List<BuyingContract>)  buyingContractRepository.findAll();
+
+        for (BuyingContract bc : buyingContracts) {
+            for (DtoSoldVehicles dtoSoldVehicles : list) {
+                if (bc.getVehicle().getId().equals(dtoSoldVehicles.getId())) {
+                    dtoSoldVehicles.setPrice(bc.getPrice());
+
+                    Date date = bc.getDate();
+
+                    dtoSoldVehicles.setPurchaseDate(date);
+                    break;
+                }
+            }
+        }
+        return list;
+    }
+
+
 }
